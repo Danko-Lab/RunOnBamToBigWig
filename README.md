@@ -62,5 +62,5 @@ Optional operations:
 Example:
 ```
 export mouse_chinfo=/local/storage/data/mm10/mm10.chromInfo
-bash RunOnBamToBigWig.bsh -SE -G -c $mouse_chinfo
+bash RunOnBamToBigWig.bsh -SE -G -c $mouse_chinfo -I ABC.bam
 ```
