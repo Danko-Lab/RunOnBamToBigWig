@@ -23,7 +23,8 @@ while test $# -gt 0; do
     echo "-c, --chrom-info=PATH  Location of the chromInfo table."
     echo ""
     echo "I/O options:"
-    echo "-I, --bam=PREFIX.bam   Input bam file"
+    echo "-I, --bam=PREFIX.bam   Input bam file. If not specified, will take"
+    echo "                       *.bam in the current working directory as input"
     echo "-T, --tmp=PATH         Path to a temporary storage directory."
     echo "-O, --output-dir=DIR   Specify a directory to store output in."
     echo ""
@@ -428,7 +429,7 @@ elif [[ "$SEQ" == "PE" ]] ; then
               bedtools bamtobed -bedpe -mate1 -i ${TMPDIR}/${j}.sort.bam 2> ${TMPDIR}/kill.warnings | awk 'BEGIN{OFS="\t"} ($10 == "-") {print $1,$6-1,$6,$7,$8,$10}; ($10 == "+") {print $1,$5,$5+1,$7,$8,$10}' | gzip > ${TMPDIR}/$j.bed.gz
            fi
         fi
-    elif [ "${RNA5}" == "R2_5prime" ] ; then
+     elif [ "${RNA5}" == "R2_5prime" ] ; then
         if [ "${OPP}" == "FALSE" ] ; then
            if [ "${MAP5}" == "TRUE" ] ; then #report the 5 prime end of RNA, in Engreitz data is 5 prime end of R2, same strand
               bedtools bamtobed -bedpe -mate1 -i ${TMPDIR}/${j}.sort.bam 2> ${TMPDIR}/${j}.kill.warnings | awk 'BEGIN{OFS="\t"} ($10 == "+") {print $1,$5,$5+1,$7,$8,$10}; ($10 == "-") {print $1,$6-1,$6,$7,$8,$10}'|gzip > ${TMPDIR}/${j}.bed.gz      
