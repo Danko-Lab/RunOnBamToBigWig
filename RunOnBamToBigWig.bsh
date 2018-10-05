@@ -182,12 +182,12 @@ done
 ## CHECK ARGUMENTS.
 if [ -z "$CHINFO" ]; then
         echo "--chrom-info is required."
-        echo " use bash proseq2.0.bsh --help."
+        echo " use bash RunOnBamToBigWig.bsh --help."
         exit 1
 fi
 if [ -z "$SEQ" ]; then
   echo "Please specify the input data is SE or PE."
-  echo " use bash proseq2.0.bsh --help."
+  echo " use bash RunOnBamToBigWig.bsh --help."
   exit 1
 fi
 
@@ -204,7 +204,7 @@ if [[ "$SEQ" == "PE" ]] ; then
     :
   else
     echo "-G and -P can only be used with -SE."
-    echo " use bash proseq2.0.bsh --help."
+    echo " use bash RunOnBamToBigWig.bsh --help."
     exit 1
   fi
 
@@ -227,7 +227,7 @@ elif [[ "$SEQ" == "SE" ]] ; then
   fi
 else
   echo "Please specify the input data is SE or PE."
-  echo " use bash proseq2.0.bsh --help."
+  echo " use bash RunOnBamToBigWig.bsh --help."
   exit 1
 fi
 
@@ -278,7 +278,7 @@ if [[ "$SEQ" == "PE" ]]; then
           :
   else
           echo "--RNA5 and --RNA3 value can only be R1_5prime or R2_5prime."
-          echo " use bash proseq2.0.bsh --help."
+          echo " use bash RunOnBamToBigWig.bsh --help."
           exit 1
   fi
 fi
@@ -303,7 +303,7 @@ elif [ "${MAP5}" == "FALSE" ] ; then
         :
 else
         echo "--map5 value can only be TRUE or FALSE."
-        echo " use bash proseq2.0.bsh --help."
+        echo " use bash RunOnBamToBigWig.bsh --help."
         exit 1
 fi
 
@@ -470,4 +470,4 @@ elif [[ "$SEQ" == "PE" ]] ; then
 fi
 
 
-#rm ${TMPDIR} -r
+rm ${TMPDIR} -r
