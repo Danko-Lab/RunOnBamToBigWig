@@ -31,7 +31,8 @@ Required options:
 -c, --chrom-info=PATH  Location of the chromInfo table.
 
 I/O options:
--I, --bam=PREFIX.bam   Input bam file
+-I, --bam=PREFIX.bam   Input bam file. If not specified, will take
+                       *.bam in the current working directory as input
 -T, --tmp=PATH         Path to a temporary storage directory.
 -O, --output-dir=DIR   Specify a directory to store output in.
 
