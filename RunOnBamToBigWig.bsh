@@ -312,6 +312,8 @@ for tool in samtools bedtools bedGraphToBigWig sort-bed
 do command -v ${tool} >/dev/null 2>&1 || { echo >&2 ${tool}" is required. Please make sure you can call the bioinformatics tools from your current working directoryb.  Aborting."; exit 1; }
 done
 
+exec > >(tee ${OUTPUT}/RunOnBamToBigWig.log)
+exec 2>&1
 
 ## Print out
 echo " " 
