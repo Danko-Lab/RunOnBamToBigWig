@@ -58,3 +58,9 @@ Options for PE
 Optional operations:
 --thread=1         Number of threads can be used [default: 1]
 ```
+
+Example:
+```
+export mouse_chinfo=/local/storage/data/mm10/mm10.chromInfo
+bash RunOnBamToBigWig.bsh -SE -G -c $mouse_chinfo
+```
