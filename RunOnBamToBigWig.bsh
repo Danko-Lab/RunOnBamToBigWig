@@ -473,4 +473,4 @@ elif [[ "$SEQ" == "PE" ]] ; then
 fi
 
 
-#rm ${TMPDIR} -r
+rm ${TMPDIR} -r
