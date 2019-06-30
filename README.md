@@ -61,7 +61,10 @@ Optional operations:
 ```
 
 Example:
+
+The pipeline requires chrom info (-c or --chrom-info=PATH).
+Chrom info is a __tab-delimited__ file with two columns. The first column is the chromosome name and the second is the size of the chromosome. Please see http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.chrom.sizes for example
 ```
-export mouse_chinfo=/local/storage/data/mm10/mm10.chromInfo
-bash RunOnBamToBigWig.bsh -SE -G -c $mouse_chinfo -I ABC.bam
+export hg38_chinfo=/local/storage/data/hg38/hg38.chrom.sizes
+bash RunOnBamToBigWig.bsh -SE -G -c $hg38_chinfo -I ABC.bam
 ```
