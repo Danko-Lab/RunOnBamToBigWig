@@ -254,14 +254,13 @@ if [ -z "$TMPDIR" ]; then
         TMPDIR="./"
 fi
 
-# bash generate random 32 character alphanumeric string (upper and lowercase).
-tmp=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
-TMPDIR=$TMPDIR/$tmp
-
 if [ ! -d $TMPDIR ]; then
   mkdir $TMPDIR
 fi
 
+# bash generate random 32 character alphanumeric string (upper and lowercase).
+tmp=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
+TMPDIR=$TMPDIR/$tmp
 
 if [ -z "$thread" ]; then
    thread=1
