@@ -405,7 +405,7 @@ if [[ "$SEQ" == "SE" ]] ; then
       
       ## Remove rRNA and reverse the strand (PRO-seq).
       zcat ${TMPDIR}/$j.bed.gz | grep "rRNA\|chrM" -v | grep "_" -v | sort-bed - | gzip > ${TMPDIR}/$j.nr.rs.bed.gz
-      echo 'Number of mappable reads (excluding rRNA):' >> ${OUTPUT}/${j}.align.log
+      echo 'Number of mappable reads (excluding rRNA and chrM):' >> ${OUTPUT}/${j}.align.log
       echo `zcat ${TMPDIR}/$j.nr.rs.bed.gz | grep "" -c` >> ${OUTPUT}/${j}.align.log
       
       ## Convert to bedGraph ... Can't gzip these, unfortunately.
@@ -471,7 +471,7 @@ elif [[ "$SEQ" == "PE" ]] ; then
    
    ## Remove rRNA and reverse the strand (PRO-seq).
    zcat ${TMPDIR}/$j.bed.gz | grep "rRNA\|chrM" -v | grep "_" -v | sort-bed - | gzip > ${TMPDIR}/$j.nr.rs.bed.gz
-   echo 'Number of mappable reads (excluding rRNA):' >> ${OUTPUT}/${j}.align.log
+   echo 'Number of mappable reads (excluding rRNA and chrM):' >> ${OUTPUT}/${j}.align.log
    echo `zcat ${TMPDIR}/$j.nr.rs.bed.gz | grep "" -c` >> ${OUTPUT}/${j}.align.log
    
    ## Convert to bedGraph ... Can't gzip these, unfortunately.
