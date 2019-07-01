@@ -10,6 +10,9 @@ The pipelines depend on several common bioinformatics tools:
 
 Please make sure you can call the bioinformatics tools from your current working directory.  
 
+## Citation
+Chu, T., Wang, Z., Chou, S. P., & Danko, C. G. (2018). Discovering Transcriptional Regulatory Elements From Run‐On and Sequencing Data Using the Web‐Based dREG Gateway. Current protocols in bioinformatics, e70.
+
 ## Usage
 ```
 Takes bam files from Run-On sequencing data as input and writes
