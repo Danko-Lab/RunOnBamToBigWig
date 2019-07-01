@@ -4,7 +4,7 @@ Takes bam files from Run-On sequencing data as input and writes bigWig files as 
 ## Dependencies: 
 
 The pipelines depend on several common bioinformatics tools: 
-- [ ] samtools Version: 1.9 (http://www.htslib.org/download/)
+- [ ] samtools (version: 1.9 http://www.htslib.org/download/)
 - [ ] bedtools v2.28.0 (http://bedtools.readthedocs.org/en/latest/)
 - [ ] bedGraphToBigWig (from the Kent source utilities http://hgdownload.cse.ucsc.edu/admin/exe/)
 
