@@ -354,17 +354,17 @@ echo "output-dir                $OUTPUT"
 echo " "
 echo "Optional operations:"
 echo "number of threads         $thread"
-
-
+echo ""
+echo ""
 echo "head of chromInfo         $CHINFO"
 head $CHINFO
-
+echo ""
 echo "examine tools bedtools bamtobed"
 bedtools bamtobed -h
-
+echo ""
 echo "examine tools bedtools genomecov"
 bedtools genomecov -h
-
+echo ""
 mkdir ${TMPDIR}
 
 #############################################
@@ -377,6 +377,7 @@ if [[ "$SEQ" == "SE" ]] ; then
     do
       j=`echo $f | awk -F"/" '{print $NF}' | rev | cut -d \. -f 2- |rev `
       echo $j > ${OUTPUT}/${j}.align.log
+      samtools view $f |head
       echo "Sorting $f"
       samtools sort -n -@ ${thread} $f > ${TMPDIR}/${j}.sort.bam
 
@@ -422,6 +423,7 @@ elif [[ "$SEQ" == "PE" ]] ; then
     do
     j=`echo $f | awk -F"/" '{print $NF}' | rev | cut -d \. -f 2- |rev `
     echo $j > ${OUTPUT}/${j}.align.log
+    samtools view $f |head
     echo "Sorting $f"
     samtools sort -n -@ ${thread} $f > ${TMPDIR}/${j}.sort.bam
 
