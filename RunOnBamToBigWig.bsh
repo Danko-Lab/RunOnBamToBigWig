@@ -501,7 +501,7 @@ for f in ${TMPDIR}/*.gz
 done
 
 echo ""
-head {TMPDIR}/*.bedGraph
+head ${TMPDIR}/*.bedGraph
 
 
 rm ${TMPDIR} -r
