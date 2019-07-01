@@ -377,7 +377,9 @@ if [[ "$SEQ" == "SE" ]] ; then
     do
       j=`echo $f | awk -F"/" '{print $NF}' | rev | cut -d \. -f 2- |rev `
       echo $j > ${OUTPUT}/${j}.align.log
+      echo "head of $f"
       samtools view $f |head
+      echo ""
       echo "Sorting $f"
       samtools sort -n -@ ${thread} $f > ${TMPDIR}/${j}.sort.bam
 
@@ -423,7 +425,9 @@ elif [[ "$SEQ" == "PE" ]] ; then
     do
     j=`echo $f | awk -F"/" '{print $NF}' | rev | cut -d \. -f 2- |rev `
     echo $j > ${OUTPUT}/${j}.align.log
+    echo "head of $f"
     samtools view $f |head
+    echo ""
     echo "Sorting $f"
     samtools sort -n -@ ${thread} $f > ${TMPDIR}/${j}.sort.bam
 
@@ -483,8 +487,14 @@ elif [[ "$SEQ" == "PE" ]] ; then
 
 fi
 
+echo ""
 cat ${OUTPUT}/*.align.log
-head ${TMPDIR}/*
+echo ""
+for f in ${TMPDIR}/*.gz
+ do echo "==> $f <=="
+ zcat $f |head
+echo ""
+head {TMPDIR}/*.bedGraph
 
 
 rm ${TMPDIR} -r
