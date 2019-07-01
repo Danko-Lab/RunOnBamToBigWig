@@ -360,7 +360,7 @@ echo "head of chromInfo         $CHINFO"
 head $CHINFO
 echo ""
 echo "head of $CHINFO col2"
-head $CHINFO | cut -d "\t" -f 2
+head $CHINFO | awk 'BEGIN{OFS="\t"}{print $2}'
 echo ""
 echo "examine tools bedtools bamtobed"
 bedtools bamtobed -h
