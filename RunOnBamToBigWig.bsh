@@ -356,6 +356,15 @@ echo "Optional operations:"
 echo "number of threads         $thread"
 
 
+echo "head of chromInfo         $CHINFO"
+head $CHINFO
+
+echo "examine tools bedtools bamtobed"
+bedtools bamtobed -h
+
+echo "examine tools bedtools genomecov"
+bedtools genomecov -h
+
 mkdir ${TMPDIR}
 
 #############################################
