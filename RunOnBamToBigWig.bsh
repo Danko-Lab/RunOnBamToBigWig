@@ -483,5 +483,8 @@ elif [[ "$SEQ" == "PE" ]] ; then
 
 fi
 
+cat ${OUTPUT}/*.align.log
+head ${TMPDIR}/*
+
 
 rm ${TMPDIR} -r
