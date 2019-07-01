@@ -1,5 +1,6 @@
 # RunOnBamToBigWig
 Takes bam files from Run-On sequencing data as input and writes bigWig files as output to the user-assigned output-dir.
+If you have un-mapped fastq.gz files, please use https://github.com/Danko-Lab/proseq2.0 instead.
 
 ## Dependencies: 
 
