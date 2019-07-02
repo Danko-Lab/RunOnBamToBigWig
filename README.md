@@ -1,5 +1,5 @@
 # RunOnBamToBigWig
-Takes bam files from Run-On sequencing data as input and writes bigWig files as output to the user-assigned output-dir.
+Takes bam files from Run-On sequencing data as input and writes bigWig files as output to the user-assigned output-dir. Please note that RunOnBamToBigWig does __NOT__ include steps to ensure chrM reads are really from mitochondrial RNA polymerase. All reads mapped to rRNA or chrM will be removed from bigWig files.
 If you have un-mapped fastq.gz files, please use https://github.com/Danko-Lab/proseq2.0 instead.
 
 ## Dependencies: 
