@@ -311,7 +311,9 @@ else
 fi
 
 ## Check all the bioinformatics tools can be called from current working directory.
-for tool in samtools bedtools bedGraphToBigWig sort-bed
+for tool in samtools bedtools bedGraphToBigWig bedSort
+#should replace sort-bed with bedSort otherwise will issue the error message below:
+#ERROR: sort-bed is required. Please make sure you can call the bioinformatics tools from your current working directoryb.  Aborting.
 do command -v ${tool} >/dev/null 2>&1 || { echo >&2 ${tool}" is required. Please make sure you can call the bioinformatics tools from your current working directoryb.  Aborting."; exit 1; }
 done
 
