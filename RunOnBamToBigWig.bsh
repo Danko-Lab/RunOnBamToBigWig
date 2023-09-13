@@ -311,7 +311,7 @@ else
 fi
 
 ## Check all the bioinformatics tools can be called from current working directory.
-for tool in samtools bedtools bedGraphToBigWig sort-bed
+for tool in samtools bedtools bedGraphToBigWig bedSort
 do command -v ${tool} >/dev/null 2>&1 || { echo >&2 ${tool}" is required. Please make sure you can call the bioinformatics tools from your current working directoryb.  Aborting."; exit 1; }
 done
 
@@ -407,7 +407,7 @@ if [[ "$SEQ" == "SE" ]] ; then
       echo `zcat ${TMPDIR}/$j.bed.gz | grep "" -c` >> ${OUTPUT}/${j}.align.log
       
       ## Remove rRNA and reverse the strand (PRO-seq).
-      zcat ${TMPDIR}/$j.bed.gz | grep "rRNA\|chrM" -v | grep "_" -v | sort-bed - | gzip > ${TMPDIR}/$j.nr.rs.bed.gz
+      zcat ${TMPDIR}/$j.bed.gz | grep "rRNA\|chrM" -v | grep "_" -v | bedSort - | gzip > ${TMPDIR}/$j.nr.rs.bed.gz
       echo 'Number of mappable reads (excluding rRNA and chrM):' >> ${OUTPUT}/${j}.align.log
       echo `zcat ${TMPDIR}/$j.nr.rs.bed.gz | grep "" -c` >> ${OUTPUT}/${j}.align.log
       
@@ -473,7 +473,7 @@ elif [[ "$SEQ" == "PE" ]] ; then
    echo `zcat ${TMPDIR}/$j.bed.gz | grep "" -c` >> ${OUTPUT}/${j}.align.log
    
    ## Remove rRNA and reverse the strand (PRO-seq).
-   zcat ${TMPDIR}/$j.bed.gz | grep "rRNA\|chrM" -v | grep "_" -v | sort-bed - | gzip > ${TMPDIR}/$j.nr.rs.bed.gz
+   zcat ${TMPDIR}/$j.bed.gz | grep "rRNA\|chrM" -v | grep "_" -v | bedSort - | gzip > ${TMPDIR}/$j.nr.rs.bed.gz
    echo 'Number of mappable reads (excluding rRNA and chrM):' >> ${OUTPUT}/${j}.align.log
    echo `zcat ${TMPDIR}/$j.nr.rs.bed.gz | grep "" -c` >> ${OUTPUT}/${j}.align.log
    
